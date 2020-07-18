@@ -1,0 +1,26 @@
+{
+  "name": "create-api-node",
+  "version": "1.0.0",
+  "description": "creating APIs with nodeJs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CaioWillianMoreira/create-api-node.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/CaioWillianMoreira/create-api-node/issues"
+  },
+  "homepage": "https://github.com/CaioWillianMoreira/create-api-node#readme",
+  "dependencies": {
+    "debug": "^2.6.8",
+    "express": "^4.15.3",
+    "http": "0.0.0",
+    "node": "^8.1.2"
+  }
+}
