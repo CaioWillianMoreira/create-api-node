@@ -18,6 +18,7 @@ const route = router.get('/', (req, res, next) => {
 
 app.use('/', route)
 server.listen(port)
+server.on('error', onError)
 console.log(`API running in ${port} port`)
 
 // Verify if exists a disponible port "express generator"
@@ -30,4 +31,29 @@ function normalizePort(val) {
         return port
     } 
     return false
+}
+
+// resolve errors in port "express generator"
+function onError(error) {
+    if (error.syscall !== 'listen') {
+        throw error
+    }
+
+    var bind = typeof port === 'string'
+        ? 'Pipe ' + port
+        : 'Port ' + port
+
+    // handle specific listen errors with friendly messages
+    switch (error.code) {
+        case 'EACCES':
+            console.error(bind + ' requires elevated privileges')
+            process.exit(1)
+            break
+        case 'EADDRINUSE':
+            console.error(bind + ' is already in use')
+            process.exit(1)
+            break
+        default:
+            throw error
+    }
 }
