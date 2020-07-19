@@ -19,6 +19,7 @@ const route = router.get('/', (req, res, next) => {
 app.use('/', route)
 server.listen(port)
 server.on('error', onError)
+server.on('listening', onListening)
 console.log(`API running in ${port} port`)
 
 // Verify if exists a disponible port "express generator"
@@ -56,4 +57,12 @@ function onError(error) {
         default:
             throw error
     }
+}
+
+// resolve debug
+function onListening() {
+    const addr = server.address()
+    const bind = typeof addr === 'string'
+    ? 'pipe ' + addr : 'port ' + addr.port
+    debug('Listening on' + bind)
 }
